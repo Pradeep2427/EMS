@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS Update Message</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 75px;
+        padding-right: 75px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+</style>
+
+<body style="font-style: oblique;">
+
+    {% if valid %}
+    <center>
+        <h1>SRM Institue of Science and Technology</h1>
+        <h3>Events</h3>
+    </center>
+
+
+    <div>
+
+        <table>
+            <tr>
+                <th>Event Title</th>
+                <th>Date</th>
+                <th>Department</th>
+                <th>Incharge</th>
+                <th>Start Time</th>
+            </tr>
+
+            {% if events|length == 0 %}
+            <h1>No Events Found :( </h1>
+
+            {% else %} {% for i in events %}
+            <tr>
+                <td>{{ i.4 }}</td>
+                <td>{{ i.1 }}</td>
+                <td>{{ i.0 }}</td>
+                <td>{{ i.5 }}</td>
+                <td>{{ i.2 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table><br><br> {% endif %}
+
+
+
+
+    </div>
+
+    {% endif %}
+
+
+</body>
+
+</html>
